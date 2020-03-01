@@ -4,13 +4,13 @@ import java.util.List;
 
 public class WordChecker {
 
-    String letter = "";
+    private String letter = "";
 
     public WordChecker() {
 
     }
 
-    public boolean checkLetter(String letter) {
+    public void checkLetter(String letter) {
         this.letter = letter;
     }
 

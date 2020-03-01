@@ -9,7 +9,12 @@ public class WordDisplay {
     WordConverter myWordConverter = new WordConverter();
     RandomWordGenerator myRandomWordGenerator = new RandomWordGenerator();
     private String displayedWord = "";
-    boolean isWon = false;
+
+    public boolean getIsWon() {
+        return isWon;
+    }
+
+    private boolean isWon = false;
     private List <Character> fullWord = new ArrayList<>();
     private List <Character> tempWord = new ArrayList<>();
 
@@ -42,5 +47,9 @@ public class WordDisplay {
             }
         }
         displayedWord = myWordConverter.listToString(tempWord);
+        if (tempWord == fullWord) {
+            isWon = true;
+        }
     }
+
 }

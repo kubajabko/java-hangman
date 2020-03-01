@@ -1,5 +1,6 @@
 package pl.edu.agh.hangman;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class GameRunner {
@@ -10,17 +11,17 @@ public class GameRunner {
 
     }
 
-    public void Game() {
+    public void Game() throws IOException {
         Drawer myDrawer = new Drawer();
         WordDisplay myWordDisplay = new WordDisplay();
         WordChecker myWordChecker = new WordChecker();
         System.out.println(myDrawer.getFrame());
         System.out.println(myWordDisplay.getWord());
         Scanner scanner = new Scanner(System.in);
-        while (myDrawer.isLost() == false & WordDisplay.isWon == false) {
+        while (myDrawer.isLost() == false & myWordDisplay.getIsWon() == false) {
             String letter = scanner.nextLine();
             myWordChecker.checkLetter(letter);
-            if (myWordChecker.isLetterTrue(myWordDisplay.getFullWord)) {
+            if (myWordChecker.isLetterTrue(myWordDisplay.getFullWord())) {
                 myWordDisplay.next(letter);
             }
             else {
