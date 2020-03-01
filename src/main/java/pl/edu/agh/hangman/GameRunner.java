@@ -19,7 +19,7 @@ public class GameRunner {
         while (myDrawer.isLost() == false & myWordDisplay.getIsWon() == false) {
             System.out.println(myDrawer.getFrame());
             System.out.println(myWordDisplay.getWord());
-            String letter = scanner.nextLine();
+            String letter = scanner.nextLine().toUpperCase().trim();
             myWordChecker.checkLetter(letter);
             if (myWordChecker.isLetterTrue(myWordDisplay.getFullWord())) {
                 myWordDisplay.next(letter);

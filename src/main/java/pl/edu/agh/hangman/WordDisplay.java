@@ -43,7 +43,7 @@ public class WordDisplay {
     public void next (String letter){
         for (Character c : fullWord){
             if (c==letter.charAt(0)){
-                tempWord.set(fullWord.indexOf(c), letter.charAt(0));
+                tempWord.set(tempWord.indexOf(c), letter.charAt(0));
             }
         }
         displayedWord = myWordConverter.listToString(tempWord);

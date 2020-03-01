@@ -26,7 +26,6 @@ public class WordConverter {
         for (Character s : charList)
         {
             sb.append(s);
-            sb.append("\t");
         }
         return sb.toString();
     }

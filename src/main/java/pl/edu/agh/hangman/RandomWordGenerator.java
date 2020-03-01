@@ -25,6 +25,8 @@ public class RandomWordGenerator {
     public String getRandomWord(List<String> wordsList){
 
         Random random = new Random();
-        return wordsList.get(random.nextInt(wordsList.size()));
+        String theWord = wordsList.get(random.nextInt(wordsList.size()));
+        System.out.println(theWord);
+        return theWord;
     }
 }
