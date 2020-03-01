@@ -14,17 +14,18 @@ public class GameRunner {
         Drawer myDrawer = new Drawer();
         WordDisplay myWordDisplay = new WordDisplay();
         WordChecker myWordChecker = new WordChecker();
+        System.out.println(myDrawer.getFrame());
+        System.out.println(myWordDisplay.getWord());
         Scanner scanner = new Scanner(System.in);
         while (myDrawer.isLost() == false & WordDisplay.isWon == false) {
-            myWordChecker.checkWord(scanner.nextLine());
-            if (myWordChecker.isLetterTrue) {
-                myWordDisplay.next();
+            String letter = scanner.nextLine();
+            myWordChecker.checkLetter(letter);
+            if (myWordChecker.isLetterTrue(myWordDisplay.getFullWord)) {
+                myWordDisplay.next(letter);
             }
             else {
                 myDrawer.next();
             }
-            System.out.println(myDrawer.getFrame());
-            System.out.println(myWordDisplay.getWord());
         }
     }
 
