@@ -2,58 +2,13 @@ package pl.edu.agh.hangman;
 
 public class Hangman {
 
-    public static final String[] HANGMANPICS = new String[]{
-            "  +---+\n" +
-                    "  |   |\n" +
-                    "      |\n" +
-                    "      |\n" +
-                    "      |\n" +
-                    "      |\n" +
-                    "=========",
-            "  +---+\n" +
-                    "  |   |\n" +
-                    "  O   |\n" +
-                    "      |\n" +
-                    "      |\n" +
-                    "      |\n" +
-                    "=========",
-            "  +---+\n" +
-                    "  |   |\n" +
-                    "  O   |\n" +
-                    "  |   |\n" +
-                    "      |\n" +
-                    "      |\n" +
-                    "=========",
-            "  +---+\n" +
-                    "  |   |\n" +
-                    "  O   |\n" +
-                    " /|   |\n" +
-                    "      |\n" +
-                    "      |\n" +
-                    "=========",
-            "  +---+\n" +
-                    "  |   |\n" +
-                    "  O   |\n" +
-                    " /|\\  |\n" +
-                    "      |\n" +
-                    "      |\n" +
-                    "=========",
-            "  +---+\n" +
-                    "  |   |\n" +
-                    "  O   |\n" +
-                    " /|\\  |\n" +
-                    " /    |\n" +
-                    "      |\n" +
-                    "=========",
-            "  +---+\n" +
-                    "  |   |\n" +
-                    "  O   |\n" +
-                    " /|\\  |\n" +
-                    " / \\  |\n" +
-                    "      |\n" +
-                    "========"
-    };
-
     public static void main(String[] args) {
+        boolean isOn = true;
+        System.out.println("Type exit to exit");
+        while (isOn) {
+            GameRunner newGame = new GameRunner();
+            newGame.Game();
+            isOn = newGame.isOn();
+        }
     }
 }
