@@ -15,10 +15,10 @@ public class GameRunner {
         Drawer myDrawer = new Drawer();
         WordDisplay myWordDisplay = new WordDisplay();
         WordChecker myWordChecker = new WordChecker();
-        System.out.println(myDrawer.getFrame());
-        System.out.println(myWordDisplay.getWord());
         Scanner scanner = new Scanner(System.in);
         while (myDrawer.isLost() == false & myWordDisplay.getIsWon() == false) {
+            System.out.println(myDrawer.getFrame());
+            System.out.println(myWordDisplay.getWord());
             String letter = scanner.nextLine();
             myWordChecker.checkLetter(letter);
             if (myWordChecker.isLetterTrue(myWordDisplay.getFullWord())) {
