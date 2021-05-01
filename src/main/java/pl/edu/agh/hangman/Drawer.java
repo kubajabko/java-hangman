@@ -21,6 +21,7 @@ public class Drawer {
     public void next() {
         step += 1;
         if (step == 6) {
+            System.out.println("Game lost!\nNext game:");
             isLost = true;
         }
         changeFrame(step);

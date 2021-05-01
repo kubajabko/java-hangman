@@ -4,17 +4,11 @@ import java.util.List;
 
 public class WordChecker {
 
-    private String letter = "";
-
     public WordChecker() {
 
     }
 
-    public void checkLetter(String letter) {
-        this.letter = letter;
-    }
-
-    public boolean isLetterTrue(List<Character> fullWord) {
+    public boolean isLetterTrue(List<Character> fullWord, String letter) {
         boolean isTrue = false;
         for (Character c : fullWord) {
             if (c == letter.charAt(0)) {
@@ -22,7 +16,6 @@ public class WordChecker {
                 break;
             }
         }
-
         return isTrue;
     }
 

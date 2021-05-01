@@ -5,12 +5,9 @@ import java.util.List;
 
 public class WordConverter {
 
+    public WordConverter() {}
 
     private ArrayList<Character> listOfLetters = new ArrayList<Character>();
-
-    public ArrayList<Character> getListOfLetters() {
-        return listOfLetters;
-    }
 
     public List<Character> wordToLetters (String word){
 
