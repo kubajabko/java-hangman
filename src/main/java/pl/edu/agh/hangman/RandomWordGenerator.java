@@ -10,11 +10,11 @@ import java.util.Random;
 
 public class RandomWordGenerator {
 
-    public List<String> importWords () throws IOException {
+    public List<String> importWords() throws IOException {
         File words = new File("src/main/resources/slowa.txt");
         BufferedReader reader = Files.newBufferedReader(words.toPath());
         List<String> wordsList = new ArrayList<>();
-        String word = null;
+        String word;
         while ((word = reader.readLine()) != null) {
             wordsList.add(word.toUpperCase());
         }
@@ -22,10 +22,9 @@ public class RandomWordGenerator {
         return wordsList;
     }
 
-    public String getRandomWord(List<String> wordsList){
+    public String getRandomWord(List<String> wordsList) {
 
         Random random = new Random();
-        String theWord = wordsList.get(random.nextInt(wordsList.size()));
-        return theWord;
+        return wordsList.get(random.nextInt(wordsList.size()));
     }
 }

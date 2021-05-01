@@ -1,60 +1,45 @@
 package pl.edu.agh.hangman;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class WordDisplay {
 
-    WordConverter myWordConverter = new WordConverter();
-    RandomWordGenerator myRandomWordGenerator = new RandomWordGenerator();
-    private String displayedWord = "";
-    private boolean isWon = false;
-    private final List<Character> fullWord;
-    private final List<Character> tempWord;
-    String word;
+    WordConverter gameWordConverter = new WordConverter();
+    RandomWordGenerator gameRandomWordGenerator = new RandomWordGenerator();
+
+    private String displayWordAsString;
+    private final String randomWordAsString;
+    private final List<Character> randomWordAsList;
+    private List<Character> guessWordAsList;
 
     public WordDisplay() throws IOException {
-        this.word = myRandomWordGenerator.getRandomWord(myRandomWordGenerator.importWords());
-        this.fullWord = myWordConverter.wordToLetters(word);
-        this.displayedWord = myWordConverter.listToString(wordToLettersToX(fullWord));
-        this.tempWord = wordToLettersToX(fullWord);
+        this.randomWordAsString = gameRandomWordGenerator.getRandomWord(gameRandomWordGenerator.importWords());
+        this.randomWordAsList = gameWordConverter.stringToList(randomWordAsString);
+        this.displayWordAsString = gameWordConverter.listToString(gameWordConverter.lettersToBlanks(randomWordAsList));
+        this.guessWordAsList = gameWordConverter.lettersToBlanks(randomWordAsList);
     }
 
-    public boolean getIsWon() {
-        return isWon;
+    public String getDisplayWordAsString() {
+        return displayWordAsString;
     }
 
-    public String getWord() {
-        return displayedWord;
+    public String getRandomWordAsString() {
+        return randomWordAsString;
     }
 
-    public List<Character> getFullWord() {
-        return fullWord;
+    public List<Character> getRandomWordAsList() {
+        return randomWordAsList;
     }
 
-    public List<Character> wordToLettersToX(List<Character> wordToLettersToX) {
-        List<Character> word = new ArrayList<>();
-        for (int i = 0; i < wordToLettersToX.size(); i++) {
-            word.add(i, '_');
-        }
-        return word;
-    }
-
-    public void next(String letter) {
+    public void letterAddToDisplayWord(String letter) {
         int counter = 0;
-        for (Character c : fullWord) {
+        for (Character c : randomWordAsList) {
             if (c == letter.charAt(0)) {
-                tempWord.set(counter, letter.charAt(0));
+                guessWordAsList.set(counter, letter.charAt(0));
             }
-            counter = counter  + 1;
+            counter = counter + 1;
         }
-        displayedWord = myWordConverter.listToString(tempWord);
-        if (displayedWord.equals(word)) {
-            System.out.println("Game won!\nNext game:");
-            isWon = true;
-        }
+        displayWordAsString = gameWordConverter.listToString(guessWordAsList);
     }
-
 }

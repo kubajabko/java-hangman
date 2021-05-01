@@ -7,9 +7,9 @@ public class WordConverter {
 
     public WordConverter() {}
 
-    private ArrayList<Character> listOfLetters = new ArrayList<Character>();
+    private final ArrayList<Character> listOfLetters = new ArrayList<>();
 
-    public List<Character> wordToLetters (String word){
+    public List<Character> stringToList(String word){
 
         for (char c : word.toCharArray()) {
             listOfLetters.add(c);
@@ -27,4 +27,11 @@ public class WordConverter {
         return sb.toString();
     }
 
+    public List<Character> lettersToBlanks(List<Character> inputWordWithLetter) {
+        List<Character> outputWordWithBlanks = new ArrayList<>();
+        for (int i = 0; i < inputWordWithLetter.size(); i++) {
+            outputWordWithBlanks.add(i, '_');
+        }
+        return outputWordWithBlanks;
+    }
 }

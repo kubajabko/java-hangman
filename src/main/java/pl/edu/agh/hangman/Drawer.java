@@ -20,11 +20,11 @@ public class Drawer {
 
     public void next() {
         step += 1;
+        changeFrame(step);
         if (step == 6) {
-            System.out.println("Game lost!\nNext game:");
+            System.out.println(frame + "\nGame lost!\nNext game:\n");
             isLost = true;
         }
-        changeFrame(step);
     }
 
     private void changeFrame(int step) {
@@ -89,7 +89,7 @@ public class Drawer {
         return frame;
     }
 
-    public boolean isLost() {
+    public boolean getIsLost() {
         return isLost;
     }
 }
