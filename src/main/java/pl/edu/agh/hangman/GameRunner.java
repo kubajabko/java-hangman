@@ -20,7 +20,6 @@ public class GameRunner {
         WordChecker gameWordChecker = new WordChecker();
         Scanner userInput = new Scanner(System.in);
         while (!gameDrawer.getIsLost() & !gameWordChecker.getIsWon()) {
-            System.out.println(gameWordDisplay.getRandomWordAsString());
             System.out.println(gameWordDisplay.getDisplayWordAsString());
             System.out.println(gameDrawer.getFrame());
             String letter = userInput.nextLine().toUpperCase().trim();
